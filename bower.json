@@ -1,7 +1,7 @@
 {
   "name": "angular-peity-charts",
-  "main": "angular-peity-charts.js",
-  "version": "v0.0.2",
+  "main": "dist/angular-peity-charts.min.js",
+  "version": "v0.0.3",
   "homepage": "https://github.com/lennonjesus/angular-peity-charts",
   "authors": [
     "Lennon Jesus <lennon.jesus@gmail.com>"
