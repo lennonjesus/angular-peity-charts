@@ -16,7 +16,7 @@
     "angular",
     "pie",
     "bar",
-    "donut"
+    "donut",
     "inline"
   ],
   "license": "MIT",
