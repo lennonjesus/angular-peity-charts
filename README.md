@@ -67,6 +67,10 @@ cMod.controller( 'ChartCtrl', function ($scope) {
             stroke: "#eee"
         }
     };
+
+    $scope.DonutChart = {
+        data: [1, 4]
+    };
 } );
 ~~~
 
@@ -77,6 +81,8 @@ cMod.controller( 'ChartCtrl', function ($scope) {
 <bar-chart data="BarChart.data" options="BarChart.options"></bar-chart>
 
 <line-chart data="LineChart.data" options="LineChart.options"></line-chart>
+
+<line-chart data="DonutChart.data" options="DonutChart.options"></line-chart>
 ~~~
 
 ## Acknowledgments

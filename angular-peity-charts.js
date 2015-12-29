@@ -70,4 +70,7 @@ var ngPeity = angular.module( 'angular-peity-charts', [] )
 }])
 .directive( 'inlineLineChart', ['buildChartDirective', function (buildChartDirective) {
     return buildChartDirective("line");
+}])
+.directive( 'inlineDonutChart', ['buildChartDirective', function (buildChartDirective) {
+    return buildChartDirective("donut");
 }]);

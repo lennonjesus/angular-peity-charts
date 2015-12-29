@@ -1,7 +1,7 @@
 {
   "name": "angular-peity-charts",
   "main": "angular-peity-charts.js",
-  "version": "v0.0.1",
+  "version": "v0.0.2",
   "homepage": "https://github.com/lennonjesus/angular-peity-charts",
   "authors": [
     "Lennon Jesus <lennon.jesus@gmail.com>"
@@ -16,6 +16,7 @@
     "angular",
     "pie",
     "bar",
+    "donut"
     "inline"
   ],
   "license": "MIT",
