@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Angular-peity-charts by lennonjesus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Angular-peity-charts</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/lennonjesus/angular-peity-charts" class="btn">View on GitHub</a>
+      <a href="https://github.com/lennonjesus/angular-peity-charts/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/lennonjesus/angular-peity-charts/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><a href="http://benpickles.github.io/peity/">Peity</a> is a <a href="https://jquery.com/">jQuery</a> plugin that converts an element's content into simple <code>&lt;svg&gt;</code> charts.</p>
+
+<p>This project provides <a href="https://angularjs.org/">AngularJS</a> directives that makes them easy to use in any project by binding data and options to a controller.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>This project, along with all of its dependencies are installed with <a href="http://bower.io/">Bower</a>: <code>bower install angular-peity-charts</code>.</p>
+
+<h2>
+<a id="set-up" class="anchor" href="#set-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set up</h2>
+
+<p>If you're familiar with how to include third-party modules in AngularJS, then you can probably skip this section. If you're new to the framework, this should help.</p>
+
+<h3>
+<a id="step-1" class="anchor" href="#step-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1</h3>
+
+<p>Include the file before the main app file:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/bower_components/jquery/jquery.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/bower_components/peity/jquery.peity.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/bower_components/angular-peity-charts/angular-peity-charts.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/js/app.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<h3>
+<a id="step-3" class="anchor" href="#step-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3</h3>
+
+<p>Add <code>angular-peity-charts</code> to your app dependencies.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> app <span class="pl-k">=</span> <span class="pl-smi">angular</span>.<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>myApp<span class="pl-pds">'</span></span>, [
+    <span class="pl-s"><span class="pl-pds">'</span>angular-peity-charts<span class="pl-pds">'</span></span>
+]);</pre></div>
+
+<h2>
+<a id="use-it" class="anchor" href="#use-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use it</h2>
+
+<p>This module creates four custom directives (tags) that can be used anywhere in your templates. Each directive uses two attributes that are bound to properties of a controller.</p>
+
+<ul>
+<li><p><strong>data</strong> - This attribute is required and is used to supply the data points that the chart will display in an array.</p></li>
+<li><p><strong>options</strong> - This attribute is not required. If used it should be an object with property names that match the available options for the type of chart being used. Information about specific options for each chart type is available at: <a href="http://benpickles.github.io/peity/">http://benpickles.github.io/peity/</a>.</p></li>
+</ul>
+
+<h4>
+<a id="controller-example" class="anchor" href="#controller-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Controller Example</h4>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> cMod <span class="pl-k">=</span> <span class="pl-smi">angular</span>.<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>myApp.controllers<span class="pl-pds">'</span></span>, []);
+
+<span class="pl-smi">cMod</span>.<span class="pl-en">controller</span>( <span class="pl-s"><span class="pl-pds">'</span>ChartCtrl<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">$scope</span>) {
+
+    <span class="pl-c">/*</span>
+<span class="pl-c">        This example is over simplified to demonstrate the relationship</span>
+<span class="pl-c">        between the 'controller' and the 'template' with regard to loading</span>
+<span class="pl-c">        the 'icon' value. Hopefully, you will be loading your controller with</span>
+<span class="pl-c">        data from an actual API response. :)</span>
+<span class="pl-c">    */</span>
+    <span class="pl-smi">$scope</span>.<span class="pl-smi">PieChart</span> <span class="pl-k">=</span> {
+        data<span class="pl-k">:</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>],
+        options<span class="pl-k">:</span> {
+            diameter<span class="pl-k">:</span> <span class="pl-c1">150</span>
+        }
+    };
+
+    <span class="pl-smi">$scope</span>.<span class="pl-smi">BarChart</span> <span class="pl-k">=</span> {
+        data<span class="pl-k">:</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>],
+        options<span class="pl-k">:</span> {
+            width<span class="pl-k">:</span> <span class="pl-c1">150</span>,
+            height<span class="pl-k">:</span> <span class="pl-c1">150</span>
+        }
+    };
+
+    <span class="pl-smi">$scope</span>.<span class="pl-smi">LineChart</span> <span class="pl-k">=</span> {
+        data<span class="pl-k">:</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">3</span>, <span class="pl-c1">1</span>],
+        options<span class="pl-k">:</span> {
+            width<span class="pl-k">:</span> <span class="pl-c1">150</span>,
+            stroke<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>#eee<span class="pl-pds">"</span></span>
+        }
+    };
+
+    <span class="pl-smi">$scope</span>.<span class="pl-smi">DonutChart</span> <span class="pl-k">=</span> {
+        data<span class="pl-k">:</span> [<span class="pl-c1">1</span>, <span class="pl-c1">4</span>]
+    };
+} );</pre></div>
+
+<h4>
+<a id="template-example" class="anchor" href="#template-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Template Example</h4>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">pie</span><span class="pl-e">-chart</span> <span class="pl-e">data</span>=<span class="pl-s"><span class="pl-pds">"</span>PieChart.data<span class="pl-pds">"</span></span> <span class="pl-e">options</span>=<span class="pl-s"><span class="pl-pds">"</span>PieChart.options<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">pie</span><span class="pl-e">-chart</span>&gt;
+
+&lt;<span class="pl-ent">bar</span><span class="pl-e">-chart</span> <span class="pl-e">data</span>=<span class="pl-s"><span class="pl-pds">"</span>BarChart.data<span class="pl-pds">"</span></span> <span class="pl-e">options</span>=<span class="pl-s"><span class="pl-pds">"</span>BarChart.options<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">bar</span><span class="pl-e">-chart</span>&gt;
+
+&lt;<span class="pl-ent">line</span><span class="pl-e">-chart</span> <span class="pl-e">data</span>=<span class="pl-s"><span class="pl-pds">"</span>LineChart.data<span class="pl-pds">"</span></span> <span class="pl-e">options</span>=<span class="pl-s"><span class="pl-pds">"</span>LineChart.options<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">line</span><span class="pl-e">-chart</span>&gt;
+
+&lt;<span class="pl-ent">line</span><span class="pl-e">-chart</span> <span class="pl-e">data</span>=<span class="pl-s"><span class="pl-pds">"</span>DonutChart.data<span class="pl-pds">"</span></span> <span class="pl-e">options</span>=<span class="pl-s"><span class="pl-pds">"</span>DonutChart.options<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">line</span><span class="pl-e">-chart</span>&gt;</pre></div>
+
+<h2>
+<a id="acknowledgments" class="anchor" href="#acknowledgments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgments</h2>
+
+<p>See the <a href="LICENSES.md">LICENSES.md</a> file for copies of the referenced licenses.</p>
+
+<p>Inspired from Benjamin <a href="https://github.com/maggiben">"maggiben"</a> <a href="https://github.com/maggiben/ng-peity">ng-peity</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/lennonjesus/angular-peity-charts">Angular-peity-charts</a> is maintained by <a href="https://github.com/lennonjesus">lennonjesus</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
