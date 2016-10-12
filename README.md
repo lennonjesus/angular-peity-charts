@@ -11,20 +11,20 @@ If you're familiar with how to include third-party modules in AngularJS, then yo
 ### Step 1
 Include the file before the main app file:
 
-~~~html
+```html
 <script src="/bower_components/jquery/jquery.min.js"></script>
 <script src="/bower_components/peity/jquery.peity.min.js"></script>
 <script src="/bower_components/angular-peity-charts/angular-peity-charts.js"></script>
 <script src="/js/app.js"></script>
-~~~
+```
 
 ### Step 3
 Add `angular-peity-charts` to your app dependencies.
-~~~javascript
+```javascript
 var app = angular.module('myApp', [
     'angular-peity-charts'
 ]);
-~~~
+```
 
 ## Use it
 This module creates four custom directives (tags) that can be used anywhere in your templates. Each directive uses two attributes that are bound to properties of a controller.
@@ -34,7 +34,7 @@ This module creates four custom directives (tags) that can be used anywhere in y
 * **options** - This attribute is not required. If used it should be an object with property names that match the available options for the type of chart being used. Information about specific options for each chart type is available at: [http://benpickles.github.io/peity/](http://benpickles.github.io/peity/).
 
 #### Controller Example
-~~~javascript
+```javascript
 var cMod = angular.module('myApp.controllers', []);
 
 cMod.controller( 'ChartCtrl', function ($scope) {
@@ -72,10 +72,10 @@ cMod.controller( 'ChartCtrl', function ($scope) {
         data: [1, 4]
     };
 } );
-~~~
+```
 
 #### Template Example
-~~~html
+```html
 <pie-chart data="PieChart.data" options="PieChart.options"></pie-chart>
 
 <bar-chart data="BarChart.data" options="BarChart.options"></bar-chart>
@@ -83,7 +83,7 @@ cMod.controller( 'ChartCtrl', function ($scope) {
 <line-chart data="LineChart.data" options="LineChart.options"></line-chart>
 
 <line-chart data="DonutChart.data" options="DonutChart.options"></line-chart>
-~~~
+```
 
 ## Acknowledgments
 See the [LICENSES.md](LICENSES.md) file for copies of the referenced licenses.
